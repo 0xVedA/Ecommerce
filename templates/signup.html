@@ -1,39 +1,70 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Sign up</title> 
-    <link rel="stylesheet" href="signup.css">
-   </head>
+    <title>Payment Form</title>
+    <link rel="stylesheet" type = "text/css" href="static/payment.css">
+</head>
 <body>
-  <div class="wrapper">
-    <h2>Sign Up</h2>
-    <form action="/signup" method="POST">
+    <div>
+        <div class="container">
+            <form action="" method="get">
+                <h1 class="main_heading">Payment Form</h1>
+                <hr>
+                <h2>User Information</h2>
+                <p>Name: *
+                    <input type="text" required name="name" placeholder="ABC XYZ">
+                </p>
+                <p>
+                    <fieldset>
+                        <legend>Gender</legend>
+                        Male <input type="radio" name="gender" id="male" value="M">
+                        Female <input type="radio" name="gender" id="female" value="F">
+                    </fieldset>
+                </p>
+                <p>
+                    Address:
+                    <br>
+                    <textarea placeholder="Enter your Address"  name="address" id="" cols="30" rows="10"></textarea>
+                </p>
+                <p>
+                    Email:
+                    <input type="email" name="email" id="email" required placeholder="Enter Your Email ID">
+                </p>
+                <p>
+                    Pincode:
+                    <input type="number" name="pincode" id="pincode" placeholder="123456">
+                </p>
+                <h2>Payment Information</h2>
+                <p>
+                    Card Type:
+                    <select name="card_type" id="card_type" required>
+                        <option value="">--Select Card Type--</option>
+                        <option value="visa">Visa</option>
+                        <option value="Mastercard">Mastercard</option>
+                        <option value="rupay">Rupay</option>
+                    </select>
+                </p>
+                <p>
+                    Card Number:
+                    <input type="number" placeholder="1111-2222-3333-4444" required>
+                </p>
+                <p>
+                    Expiration Date:
+                    <input type="date">
+                </p>
+                <p>
+                    CVV
+                    <input type="number" placeholder="123">
+                </p>
+                <p>
+                    <button type="submit">Pay Now</button>
+                </p>
 
-      <div class = "input-box" >
-        <input type="text" placeholder="Enter your name" name="Uname" required >
-      </div>
-      <div class="input-box">
-        <input type="number" placeholder="Enter your Mobile no" name="Mobnum" required >
-      </div>
-      <div class="input-box">
-        <input type="email" placeholder="Enter Email id" name="Email" required>
-      </div>
-      <div class="input-box">
-        <input type="password" placeholder="Create password" name = "pwd" required>
-      </div>
-      <div class="policy">
-        <input type="checkbox">
-        <h3>I accept all terms & condition</h3>
-      </div>
-      <div class="input-box button">
-        <input type="Submit" value="Register Now" >
-      </div>
-      <div class="text">
-        <h3>Already have an account? <a href="/login">Login now</a></h3>
-      </div>
-    </form>
-  </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
