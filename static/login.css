@@ -60,6 +60,7 @@ form{
     font-size: 16px;
     font-weight: 400;
     border-radius: 6px;
+    position: absolute;
 }
 .field input{
     outline: none;
