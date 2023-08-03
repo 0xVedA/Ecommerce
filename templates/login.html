@@ -16,22 +16,20 @@
             <div class="form login">
                 <div class="form-content">
                     <header>Login</header>
-                    <form action="#">
+                    <form action="/signup" method="post">
                         <div class="field input-field">
-                            <input type="email" placeholder="Email" class="input" required>
+                            <input type="email" placeholder="Email" name="email" class="input" required>
                         </div>
 
                         <div class="field input-field">
-                            <input type="password" placeholder="Password" class="password" required>
+                            <input type="password" placeholder="Password" name="password" class="password" required>
                             <i class='bx bx-hide eye-icon'></i>
                         </div>
 
-                        <div class="form-link">
-                            <a href="#" class="forgot-pass">Forgot password?</a>
-                        </div>
-
                         <div class="field button-field">
-                            <button>Login</button>
+                            <button>Login
+                                <a type="button" href="/">Login</a>
+                            </button>
                         </div>
                     </form>
 

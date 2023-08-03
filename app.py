@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 import cx_Oracle
+from cryptography.fernet import Fernet
 app = Flask(__name__)
 
 def get_connection():
@@ -13,7 +14,7 @@ def index():
 @app.route('/login')
 def login():
     return render_template("login.html")
-    
+
 
 @app.route('/payment')
 def payment():
@@ -27,7 +28,14 @@ def signup():
         name = request.form.get('Uname')
         mobile = request.form.get('Mobnum')
         email = request.form.get('Email')
-        user_password = request.form.get('pwd')
+        encpass = request.form.get('pwd')
+        key = Fernet.generate_key()
+        fernet = Fernet(key)
+        user_password = fernet.encrypt(encpass.encode())
+
+
+        # decMessage = fernet.decrypt(encPass).decode()
+
 
         try:
             con = get_connection()
