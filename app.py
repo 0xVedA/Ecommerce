@@ -1,20 +1,11 @@
 from flask import Flask, render_template, request, jsonify
 import cx_Oracle
-from cryptography.fernet import Fernet
 app = Flask(__name__)
-import bcrypt
+import argon2
+argon2_hasher = argon2.PasswordHasher()
 
 def get_connection():
     return cx_Oracle.connect('hr/hr@localhost:1521/xe')
-
-
-
-
-
-@app.route('/')
-def index():
-    return render_template("index.html")
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -35,13 +26,15 @@ def login():
             if user_data:
                 stored_email, stored_password = user_data
 
-                # Verify the entered password against the stored hashed password
-                if bcrypt.checkpw(entered_password.encode('utf-8'), stored_password.encode('utf-8')):
+                # Verify the entered password against the stored hashed password using Argon2
+                try:
+                    argon2_hasher.verify(stored_password, entered_password)
                     # Successful login: Store user information in the session
-
                     return jsonify({'message': 'Login successful!'})
-                else:
+
+                except argon2.exceptions.VerifyMismatchError:
                     return jsonify({'error': 'Invalid email or password'})
+
             else:
                 return jsonify({'error': 'Invalid email or password'})
 
@@ -59,6 +52,14 @@ def login():
     return render_template("login.html")
 
 
+
+@app.route('/')
+def index():
+    return render_template("index.html")
+
+
+
+
 @app.route('/payment')
 def payment():
     return render_template("paymentform.html")
@@ -73,16 +74,15 @@ def signup():
         email = request.form.get('Email')
         password = request.form.get('pwd')
 
-        # Generate a new random salt and hash the password
-        salt = bcrypt.gensalt()
-        hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+        # Hash the password using Argon2
+        hashed_password = argon2_hasher.hash(password)
 
         try:
             con = get_connection()
             cursor = con.cursor()
 
             sql = "INSERT INTO SIGNUP (UNAME, MOBILE, EMAIL, USER_PASSWORD) VALUES (:1, :2, :3, :4)"
-            cursor.execute(sql, (name, mobile, email, hashed_password.decode('utf-8')))  # Note the decode here
+            cursor.execute(sql, (name, mobile, email, hashed_password))
             con.commit()
             print("values inserted")
 
