@@ -2,8 +2,7 @@ from flask import Flask, render_template, request, jsonify
 import cx_Oracle
 from cryptography.fernet import Fernet
 app = Flask(__name__)
-key = Fernet.generate_key()
-fernet = Fernet(key)
+import bcrypt
 
 def get_connection():
     return cx_Oracle.connect('hr/hr@localhost:1521/xe')
@@ -22,7 +21,6 @@ def login():
     if request.method == 'POST':
         email = request.form.get('email')
         entered_password = request.form.get('password')
-        codedpwd = fernet.encrypt(entered_password.encode())
 
         try:
             # Establish the database connection
@@ -35,9 +33,12 @@ def login():
             user_data = cursor.fetchone()
 
             if user_data:
+                stored_email, stored_password = user_data
+
                 # Verify the entered password against the stored hashed password
-                stored_password = user_data[1]
-                if codedpwd == stored_password:
+                if bcrypt.checkpw(entered_password.encode('utf-8'), stored_password.encode('utf-8')):
+                    # Successful login: Store user information in the session
+
                     return jsonify({'message': 'Login successful!'})
                 else:
                     return jsonify({'error': 'Invalid email or password'})
@@ -54,9 +55,8 @@ def login():
                 conn.close()
                 print("connection closed")
 
-        # If the request is a GET request, render the login page
+    # If the request is a GET request, render the login page
     return render_template("login.html")
-
 
 
 @app.route('/payment')
@@ -71,19 +71,18 @@ def signup():
         name = request.form.get('Uname')
         mobile = request.form.get('Mobnum')
         email = request.form.get('Email')
-        encpass = request.form.get('pwd')
-        user_password = fernet.encrypt(encpass.encode())
+        password = request.form.get('pwd')
 
-
-        # decMessage = fernet.decrypt(encPass).decode()
-
+        # Generate a new random salt and hash the password
+        salt = bcrypt.gensalt()
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
 
         try:
             con = get_connection()
             cursor = con.cursor()
 
-            sql = "INSERT INTO SIGNUP (UNAME, mobile, email, USER_PASSWORD) VALUES (:1, :2, :3, :4)"
-            cursor.execute(sql, (name, mobile, email, user_password))
+            sql = "INSERT INTO SIGNUP (UNAME, MOBILE, EMAIL, USER_PASSWORD) VALUES (:1, :2, :3, :4)"
+            cursor.execute(sql, (name, mobile, email, hashed_password.decode('utf-8')))  # Note the decode here
             con.commit()
             print("values inserted")
 
