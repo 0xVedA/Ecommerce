@@ -8,6 +8,7 @@ fernet = Fernet(key)
 def get_connection():
     return cx_Oracle.connect('hr/hr@localhost:1521/xe')
 
+
 @app.route('/')
 def index():
     return render_template("index.html")
