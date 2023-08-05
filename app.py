@@ -51,7 +51,41 @@ def login():
     # If the request is a GET request, render the login page
     return render_template("login.html")
 
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+    if request.method == 'POST':
+        # Get the form data submitted by the user
+        name = request.form.get('Uname')
+        mobile = request.form.get('Mobnum')
+        email = request.form.get('Email')
+        encpass = request.form.get('pwd')
 
+        salt = bcrypt.gensalt()
+        hashed_password = bcrypt.hashpw(encpass.encode('utf-8'), salt)
+
+        try:
+            con = get_connection()
+            cursor = con.cursor()
+
+            sql = "INSERT INTO SIGNUP (UNAME, mobile, email, USER_PASSWORD) VALUES (:1, :2, :3, :4)"
+            cursor.execute(sql, (name, mobile, email, hashed_password.decode('utf-8')))
+            con.commit()
+            print("values inserted")
+
+        except Exception as e:
+            return jsonify({'error': str(e)})
+
+        finally:
+            if cursor:
+                cursor.close()
+            if con:
+                con.close()
+                print("connection closed")
+
+        # Return a response to the user after the form data is processed
+        return render_template("login.html")
+
+    return render_template("signup.html")
 
 @app.route('/')
 def index():
@@ -72,14 +106,16 @@ def payment():
         pincode = request.form.get('pincode')
 
         # Get the selected product name from the query parameter
-        product_name = request.args.get('product_name')
-
+        product_name = request.form.get('product_name')
         try:
             con = get_connection()
             cursor = con.cursor()
-
-            sql = "INSERT INTO PAYMENT (NAME, GENDER, ADDRESS, EMAIL, PINCODE, PRODUCT_NAME) VALUES (:1, :2, :3, :4, :5, :6)"
+            num = 1
+            sql = "INSERT INTO PAYMENT (NAME, GENDER, ADDS, EMAIL, PIN, PRODUCT) VALUES (:1, :2, :3, :4, :5, :6)"
+            print(num)
+            num = num + 1
             cursor.execute(sql, (name, gender, address, email, pincode, product_name))
+
             con.commit()
             print("values inserted")
 
