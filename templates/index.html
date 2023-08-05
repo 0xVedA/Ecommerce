@@ -1,5 +1,371 @@
 <!DOCTYPE html>
-<head> Successful </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Site</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="static/index.css">
+    <script>
+    // Function to redirect to the payment form with the selected product ID
+     function redirectToPayment(product_name) {
+     window.location.href = "/payment?product_name=" + product_name;
+      }
+    </script>
+
+  </head>
 <body>
-<h1> Successful </h1>
+
+  
+  <nav class="navbar bg-body-tertiary">
+    <div class="container-fluid"  style="background-color: white;">
+      <a class="navbar-brand" style="background-color: white; width: 50%"> <img src="static/images/home.png" height="6%" width="6%" style="margin-left: 6%;"  alt=""></a>
+      <img src="static/images/shopping-cart.gif" alt="" width="2.9%" style="margin-left: -73%;">
+     
+      <div class="siteName">
+       <img src="static/images/logo.JPG" alt="" height="22%" width="35%"  style="     margin-left: -38%;">
+      </div>
+      
+      <form class="d-flex" role="search">
+        <button class="btn btn-outline-success" type="submit" style="margin-left: -20%;"><a href="/login"> Login </a></button>
+        <button class="btn btn-outline-success" type="submit"  style="margin-left: 10%;"><a href="/signup"> Sign Up </a></button>
+      </form>
+    </div>
+  </nav>
+ 
+
+
+
+
+
+  <div class="desktop-1-ibF" id="1:2">
+    <div class="rectangle-1-KL9" id="1:3"></div>
+    <img class="b02-1-pXo" src="static/images/banner4.jpg" id="2:2"/>
+
+    <div class="desktop-1-ibF" id="1:2">
+      <div class="rectangle-1-KL9" id="1:3"></div>
+      <img class="b02-1-pXo rohit"  src="static/images/banner1.jpg"/>
+      </div>
+
+      <div class="desktop-1-ibF" id="1:2">
+        <div class="rectangle-1-KL9" id="1:3"></div>
+        <img class="b02-1-pXo rohit"  src="static/images/banner2.jpg"/>
+        </div>
+
+      <div class="desktop-1-ibF" id="1:2">
+        <div class="rectangle-1-KL9" id="1:3"></div>
+        <img class="b02-1-pXo" src="static/images/banner3.jpg" id="ba3"/>
+        </div>
+
+
+
+        <div class="desktop-1-ibF" id="1:2">
+          <div class="rectangle-1-KL9" id="1:3"></div>
+          <img class="b02-1-pXo" src="static/images/banner5.jpg" id="ba3"/>
+          </div>
+
+          <div class="desktop-1-ibF" id="1:2">
+            <div class="rectangle-1-KL9" id="1:3"></div>
+            <img class="b02-1-pXo" src="static/images/banner6.jpg" id="ba3"/>
+            </div>
+
+        
+    </div>
+    
+    
+
+   
+    <div class="secondpage">
+      <div class="row row-cols-3 row-cols-md-5 g-5">
+        <div class="col">
+          <div class="card h-95">
+            <img src="static/images/t1.jpg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%">
+            <div class="card-body">
+              <h5 class="card-title"><strong> New-Fannel Shirt</strong></h5>
+              <p class="card-text">All New green fannel shirt & T-shirt</p>
+               <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Fannel Shirt')><span>Buy Now!!</span> </button>
+            </div>
+            <div class="card-footer">
+              <small class="text-body-secondary">Last updated 3 mins ago</small>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-95">
+            <img src="static/images/t2.jpg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+            <div class="card-body">
+              <h5 class="card-title"><strong> Cream-Sewaters</strong></h5>
+              <p class="card-text"> Season Arrival Cream color Sewaters for all winters.</p>
+              <button class="tshirtB1" style="vertical-align:middle"onclick="redirectToPayment('Cream-Sweater')><span>Buy Now!!</span> </button>
+            </div>
+            <div class="card-footer">
+              <small class="text-body-secondary">Last updated 5 mins ago</small>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-95">
+            <img src="static/images/mod2.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+            <div class="card-body">
+              <h5 class="card-title"><strong> New-Casual-For womens</strong></h5>
+              <p class="card-text"> Black jacket for womens.</p>
+              <button class="tshirtB1" style="vertical-align:middle"onclick="redirectToPayment('Black Jacket')><span>Buy Now!!</span> </button>
+            </div>
+            <div class="card-footer">
+              <small class="text-body-secondary">Last updated 10 mins ago</small>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card h-95">
+            <img src="static/images/r14.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+            <div class="card-body">
+              <h5 class="card-title"><strong> Classical-Watches</strong></h5>
+              <p class="card-text"> Brand new Classical Watche with premium look.</p>
+              <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Classic Watch')><span>Buy Now!!</span> </button>
+            </div>
+            <div class="card-footer">
+              <small class="text-body-secondary">Last updated 20 mins ago</small>
+            </div>
+          </div>
+      </div>
+      <div class="col">
+        <div class="card h-95">
+          <img src="static/images/mod1.png" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+          <div class="card-body">
+            <h5 class="card-title"><strong> Denim Jacket</strong></h5>
+            <p class="card-text"> Blue Colour Denim Jackets with more colors.</p>
+            <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Denim Jacket')><span>Buy Now!!</span> </button>
+          </div>
+          <div class="card-footer">
+            <small class="text-body-secondary">Last updated 1hr ago</small>
+          </div>
+        </div>
+    </div>
+</div>
+
+<!--------------------marquee--------------->
+
+    <div class="headline">
+      <div class="color">
+        <marquee behavior="" direction="" class="marquee" scrollamount="30"> Up To Flat 80% Discount &emsp;&emsp;  Up To Flat 80% Discount &emsp;&emsp; Up To Flat 80% Discount &emsp;&emsp; Up To Flat 80% Discount &emsp;&emsp; Up To Flat 80% Discount </marquee>
+       
+      </div>
+    </div>
+
+<!--------------------template--------------->
+    <div class="template">
+      <img class="bigtemplate" src="static/images/template.jpg" alt=""  position="absolute">
+    </div>
+
+    <!----------------------------flip cards--------------------------------->
+    
+<div class="products">
+    <div class="row row-cols-4 row-cols-md-6 g-5 mt-10 ">
+      <div class="col" style="width: 255px;
+      height: 16px; margin-left: -2%;">
+        <div class="card h-95"  id="product-ABC" >
+          <img src="static/images/r9.jpeg" class="card-img-top" alt="..." width="70px" height="250px" margin-top = "2%">
+          <div class="card-body">
+            <h5 class="card-title"> <strong>Noise-Smart Watch</strong></h5>
+            <p class="card-text">All Trendimg features with calling funtion</p>
+             <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('NOISE_SMARTWATCH')"><span>Buy Now!!</span> </button></a>
+          </div>
+
+         
+        </div>
+      </div>
+
+      <div class="col" style="width: 255px;
+      height: 16px; margin-left: -2%; ">
+        <div class="card h-95 "width="200px">
+          <img src="static/images/r2.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+          <div class="card-body">
+            <h5 class="card-title"> <strong>PUMA-white Sneakers</strong> </h5>
+            <p class="card-text"> Get Stylish Puma shoes with trendy colours.</p>
+            <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('PUMA-white Sneakers')><span>Buy Now!!</span> </button>
+          </div>
+         
+        </div>
+      </div>
+      <div class="col" style="width: 255px;
+      height: 16px; margin-left: -1%;">
+        <div class="card h-95">
+          <img src="static/images/r1.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+          <div class="card-body">
+            <h5 class="card-title"><strong>All-New <br>PUMA </strong> </h5>
+           
+            <p class="card-text"> Fashion and trending puma shoes at one shop.</p>
+            <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Puma Shoes')><span>Buy Now!!</span> </button>
+          </div>
+        
+        </div>
+      </div>
+      <div class="col" style="width: 255px;
+      height: 16px; margin-left: -2%;">
+        <div class="card h-95">
+          <img src="static/images/r3.jpg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+          <div class="card-body">
+            <h5 class="card-title"><strong>Men's-Casual Shoes</strong></h5>
+            <p class="card-text"> All type of mens shoes with different colours</p>
+            <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Casual Shoes')><span>Buy Now!!</span> </button>
+          </div>
+         
+        </div>
+    </div>
+
+    <div class="col" style="width: 255px;
+    height: 16px; margin-left: -2%;">
+      <div class="card h-95 row-6">
+        <img src="static/images/r5.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+        <div class="card-body">
+          <h5 class="card-title"><strong>Trending-Kurtas For girls </strong></h5></h5>
+          <p class="card-text"> New arrival red design kurta for girls.</p>
+          <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Kurtas(Girls)')><span>Buy Now!!</span> </button>
+        </div>
+       
+      </div>
+  </div>
+
+<!------------------next page card-------------------------------->
+<div class="col" style="width: 255px;
+height: 16px; margin-left: -2%; margin-bottom:30%;" >
+  <div class="card h-95">
+    <img src="static/images/r8.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+    <div class="card-body">
+      <h5 class="card-title"><strong>All-New yellow Hoodies</strong></h5></h5>
+      <p class="card-text"> Latest collection of Hoodies for men's.</p>
+      <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Hoodies')><span>Buy Now!!</span> </button>
+    </div>
+   
+  </div>
+</div>
+
+
+<div class="col" style="width: 255px;
+height: 16px; margin-left: -2%;">
+  <div class="card h-95">
+    <img src="static/images/r3.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+    <div class="card-body">
+      <h5 class="card-title"><strong>Men's-Track <br>Clothing </strong></h5></h5>
+      <p class="card-text"> This content is a little bit longer.</p>
+      <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Tshirt')><span>Buy Now!!</span> </button>
+    </div>
+ 
+  </div>
+</div>
+
+
+<div class="col" style="width: 255px;
+height: 16px; margin-left: -2%;">
+  <div class="card h-95">
+    <img src="static/images/r9.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+    <div class="card-body">
+      <h5 class="card-title"><strong>Noise-Smart Watch</strong></h5>
+      <p class="card-text">All Trendimg features with calling funtion</p>
+      <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('NOISE_SMARTWATCH_2')><span>Buy Now!!</span> </button>
+    </div>
+ 
+  </div>
+</div>
+
+
+<div class="col" style="width: 255px;
+height: 16px; margin-left: -2%;">
+  <div class="card h-95">
+    <img src="static/images/r10.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+    <div class="card-body">
+      <h5 class="card-title"><strong> New-Mechanical Watch</strong></h5>
+      <p class="card-text"> New Arrival Mechanical Watch with different colours. </p>
+      <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Mechanical_WATCH')><span>Buy Now!!</span> </button>
+    </div>
+  
+  </div>
+</div>
+
+
+<div class="col" style="width: 255px;
+height: 16px; margin-left: -2%;">
+  <div class="card h-95">
+    <img src="static/images/r12.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+    <div class="card-body">
+      <h5 class="card-title"><strong> Men's-Trendy shirt Blue</strong></h5>
+      <p class="card-text"> New outfit for the teen fashion.</p>
+      <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Blue_shirt')><span>Buy Now!!</span> </button>
+    </div>
+   
+  </div>
+</div>
+
+
+<div class="col" style="width: 255px;
+height: 16px; margin-left: -2%;">
+  <div class="card h-95">
+    <img src="static/images/r13.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+    <div class="card-body">
+      <h5 class="card-title"><strong> New-Mechanical Watch</strong></h5>
+      <p class="card-text">  New Black T-shirt for the girls fashion.</p>
+      <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('Mechanical_watch')><span>Buy Now!!</span> </button>
+    </div>
+  
+  </div>
+</div>
+
+
+<div class="col">
+  <div class="card h-95">
+    <img src="static/images/r15.jpeg" class="card-img-top" alt="..." width="80px" height="250px" margin-top = "2%" >
+    <div class="card-body">
+      <h5 class="card-title"><strong> NIKE-Air <br>Jorden</strong></h5>
+      <p class="card-text"> Black-Red nike jorden shoes.</p>
+      <button class="tshirtB1" style="vertical-align:middle" onclick="redirectToPayment('NIKE_AIR')><span>Buy Now!!</span> </button>
+    </div>
+   
+  </div>
+</div>
+
+
+</div>
+
+<!---------------footer----------------------------->
+
+
+<div class="footer-dark">
+  <footer>
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-6 col-md-3 item">
+                  <h3>Services</h3>
+                  <ul>
+                      <li><a href="#">Clothing</a></li>
+                      <li><a href="#">Shoes</a></li>
+                      <li><a href="#">Accessories</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-6 col-md-3 item">
+                  <h3>About</h3>
+                  <ul>
+                      <li><a href="#">Company</a></li>
+                      <li><a href="#">Team</a></li>
+                      <li><a href="#">Careers</a></li>
+                  </ul>
+              </div>
+              <div class="col-md-6 item text">
+                  <h3>Baban Shopping</h3>
+                  <p>Baban Shopping is the online Shopping website which provides customers to variety of cloths, shoes, watches,gen's & ladies wear at one store.</p>
+              </div>
+              <div class="col item social"><a href=""><i class="icon ion-social-facebook"></i></a></i></a></div>
+          </div>
+          <p class="copyright">Baban Shopping © 2023</p>
+      </div>
+  </footer>
+</div>
+
+
+<a href="https://epicbootstrap.com/snippets/footer-dark"></a>
+
+    <script src="static/index.js"></script>
 </body>
+</html>

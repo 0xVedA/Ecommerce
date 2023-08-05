@@ -60,29 +60,26 @@ def index():
 
 
 
-@app.route('/payment')
+
+@app.route('/payment', methods=['GET', 'POST'])
 def payment():
-    return render_template("paymentform.html")
-
-
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
     if request.method == 'POST':
         # Get the form data submitted by the user
-        name = request.form.get('Uname')
-        mobile = request.form.get('Mobnum')
-        email = request.form.get('Email')
-        password = request.form.get('pwd')
+        name = request.form.get('name')
+        gender = request.form.get('gender')
+        address = request.form.get('address')
+        email = request.form.get('email')
+        pincode = request.form.get('pincode')
 
-        # Hash the password using Argon2
-        hashed_password = argon2_hasher.hash(password)
+        # Get the selected product name from the query parameter
+        product_name = request.args.get('product_name')
 
         try:
             con = get_connection()
             cursor = con.cursor()
 
-            sql = "INSERT INTO SIGNUP (UNAME, MOBILE, EMAIL, USER_PASSWORD) VALUES (:1, :2, :3, :4)"
-            cursor.execute(sql, (name, mobile, email, hashed_password))
+            sql = "INSERT INTO PAYMENT (NAME, GENDER, ADDRESS, EMAIL, PINCODE, PRODUCT_NAME) VALUES (:1, :2, :3, :4, :5, :6)"
+            cursor.execute(sql, (name, gender, address, email, pincode, product_name))
             con.commit()
             print("values inserted")
 
@@ -97,10 +94,11 @@ def signup():
                 print("connection closed")
 
         # Return a response to the user after the form data is processed
-        return jsonify({'message': 'User registered successfully!'})
+        return jsonify({'message': 'Payment details saved successfully!'})
 
-    return render_template("signup.html")
-
+    # Get the product ID from the query parameter and pass it to the payment form
+    product_name = request.args.get('product_name')
+    return render_template("paymentform.html", product_name=product_name)
 
 if __name__ == "__main__":
     app.run(debug=True)
